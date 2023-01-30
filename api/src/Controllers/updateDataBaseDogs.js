@@ -9,11 +9,10 @@ updateDataBase.get("/", async (req, res) => {
   const dogs = response.data.map((dog) => {
     return {
       name: dog.name,
-      id: dog.id,
       height: dog.height.metric,
       weight: dog.weight.metric,
       lifeSpan: dog.life_span,
-     
+      image: dog.image.url
     };
   });
 

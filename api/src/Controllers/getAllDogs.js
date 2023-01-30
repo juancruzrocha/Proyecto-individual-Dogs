@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const getAllDogs = Router();
-const { Dog } = require("../db");
+const { Dog , Temperament } = require("../db");
 const { firstToUpperCase } = require('../Utils/firstToUpperCase')
 
 getAllDogs.get("/", async (req, res) => {
