@@ -1,0 +1,5 @@
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(217, 173, 103, 0.674); 
+    }
