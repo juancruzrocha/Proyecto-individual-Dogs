@@ -23,7 +23,7 @@ const initialState = {
         return {
           ...state,
           searchResult: [...state.searchResult , ...action.payload],
-          showSearchResults: true
+          showSearchResult: true
         }  
         
       default:

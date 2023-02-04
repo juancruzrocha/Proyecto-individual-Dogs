@@ -1,28 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { searchResult } from "../redux/actions";
-import {firstToUpperCase} from '../helpers/firstToUpperCase';
+import { firstToUpperCase } from "../helpers/firstToUpperCase";
 
-const SearchBar = ({onSearch}) => {
+const SearchBar = (props) => {
   // estado local del input de busqueda
   const [busqueda, setBusqueda] = useState("");
   //estado global que tiene a todos los perros []
   const state = useSelector((state) => state.dogs);
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setBusqueda(firstToUpperCase(e.target.value));
   };
 
+  // guardamos en un array el resultado de la busqueda
   const searchBarResult = (terminoBusqueda) => {
     let result = state.filter((dog) => dog.name === terminoBusqueda);
     return result;
   };
 
-  const handleSubmit = e =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(busqueda)
-  };
+    };
 
   console.log("soy el global-state.dogs:", state);
   console.log("soy el local-state-busqueda:", busqueda);
@@ -44,7 +45,7 @@ const SearchBar = ({onSearch}) => {
         <input
           type="submit"
           value="Search"
-          onClick={searchResult(searchBarResult(busqueda))}
+          onClick={dispatch(searchResult(searchBarResult(busqueda)))}
         />
       </form>
     </>
