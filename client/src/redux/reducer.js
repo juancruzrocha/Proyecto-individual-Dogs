@@ -22,7 +22,7 @@ const initialState = {
       case SEARCH_RESULT :
         return {
           ...state,
-          searchResult: [...state.searchResult , ...action.payload],
+          searchResult: [...state.searchResult,...action.payload],
           showSearchResult: true
         }  
         

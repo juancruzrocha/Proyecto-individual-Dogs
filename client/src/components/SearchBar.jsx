@@ -21,16 +21,12 @@ const SearchBar = (props) => {
     return result;
   };
 
+  //para que cuando se enviua el form no se recargue la pagina
   const handleSubmit = (e) => {
     e.preventDefault();
-    };
 
-  console.log("soy el global-state.dogs:", state);
-  console.log("soy el local-state-busqueda:", busqueda);
-  console.log(
-    "soy el resultado de la ejecucion de searchBarResult(busqueda)",
-    searchBarResult(busqueda)
-  );
+    dispatch(searchResult(searchBarResult(busqueda)))
+  };
 
   return (
     <>
@@ -45,7 +41,7 @@ const SearchBar = (props) => {
         <input
           type="submit"
           value="Search"
-          onClick={dispatch(searchResult(searchBarResult(busqueda)))}
+          // onClick={dispatch(searchResult(searchBarResult(busqueda)))}
         />
       </form>
     </>
@@ -53,3 +49,10 @@ const SearchBar = (props) => {
 };
 
 export default SearchBar;
+
+// console.log("soy el global-state.dogs:", state);
+// console.log("soy el local-state-busqueda:", busqueda);
+// console.log(
+//   "soy el resultado de la ejecucion de searchBarResult(busqueda)",
+//   searchBarResult(busqueda)
+// );

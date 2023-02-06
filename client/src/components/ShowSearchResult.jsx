@@ -5,9 +5,6 @@ import estilos from "./Cards.module.css";
 
 const ShowSearchResult = (props) => {
   const state = useSelector((state) => state);
-  console.log("soy el state searchResult", state);
-  const dog = state.searchResult[0];
-  console.log(dog);
 
   return state.showSearchResult === true ? (
     <>
