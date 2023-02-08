@@ -1,4 +1,5 @@
-import { GET_DOGS, GET_DOG_DETAIL, SEARCH_RESULT  } from "./actions";
+import { GET_DOGS, GET_DOG_DETAIL, SEARCH_RESULT, ORDER_BY_NAME  } from "./actions";
+import { orderDogsByName } from './../controllers/orderDogsByName';
 
 const initialState = {
     dogs: [],
@@ -25,6 +26,13 @@ const initialState = {
           searchResult: [...state.searchResult,...action.payload],
           showSearchResult: true
         }  
+
+        case ORDER_BY_NAME:
+      
+        return {
+          ...state,
+          dogs: orderDogsByName(state,action)
+        }
         
       default:
         return { ...state };

@@ -1,7 +1,8 @@
 import React from "react";
 import Cards from "./Cards";
+import Filtrado from "./Filtrado";
 import NavBar from "./NavBar";
-import Paginado from "./Paginado";
+// import Paginado from "./Paginado";
 import ShowSearchResult from "./ShowSearchResult";
 
 const Home = (props) => {
@@ -10,6 +11,7 @@ const Home = (props) => {
       <NavBar />
       <h1>HOME</h1>
       <ShowSearchResult />
+      <Filtrado/>
       <Cards />
     </>
   );
