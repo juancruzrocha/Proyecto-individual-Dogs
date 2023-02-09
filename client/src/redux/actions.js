@@ -2,6 +2,7 @@ export const GET_DOGS = "GET_DOGS";
 export const GET_DOG_DETAIL = "GET_DOG_DETAIL";
 export const SEARCH_RESULT = "SEARCH_RESULT";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const PAGINATE_CHANGER = "PAGINATE_CHANGER";
 
 export const getDogs = () => {
   return function (dispatch) {
@@ -30,3 +31,7 @@ export const searchResult = (searchBarResult) => {
 export const orderByName = (payload) => {
   return { type: ORDER_BY_NAME, payload  };
 };
+
+export const paginateChanger = (payload) => {
+  return { type: PAGINATE_CHANGER, payload }
+}

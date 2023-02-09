@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_DOG_DETAIL, SEARCH_RESULT, ORDER_BY_NAME  } from "./actions";
+import { GET_DOGS, GET_DOG_DETAIL, SEARCH_RESULT, ORDER_BY_NAME, PAGINATE_CHANGER  } from "./actions";
 import { orderDogsByName } from './../controllers/orderDogsByName';
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
     temperaments: [],
     dogDetail: [],
     searchResult: [],
+    renderDogs:[]
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -31,8 +32,16 @@ const initialState = {
       
         return {
           ...state,
-          dogs: orderDogsByName(state,action)
+          dogs: orderDogsByName(state,action),
+          propiedadDePrueba: true,
         }
+      
+      case PAGINATE_CHANGER: 
+      return {
+        ...state,
+        renderDogs: [...action.payload]
+      }
+
         
       default:
         return { ...state };
