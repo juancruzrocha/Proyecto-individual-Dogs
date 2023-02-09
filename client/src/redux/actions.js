@@ -3,6 +3,7 @@ export const GET_DOG_DETAIL = "GET_DOG_DETAIL";
 export const SEARCH_RESULT = "SEARCH_RESULT";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const PAGINATE_CHANGER = "PAGINATE_CHANGER";
+export const CREATE_DOG = "CREATE_DOG"
 
 export const getDogs = () => {
   return function (dispatch) {
@@ -34,4 +35,8 @@ export const orderByName = (payload) => {
 
 export const paginateChanger = (payload) => {
   return { type: PAGINATE_CHANGER, payload }
+}
+
+export const createDog = (dog) => {
+  return { type: CREATE_DOG, payload: dog}
 }

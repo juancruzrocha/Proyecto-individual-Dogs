@@ -13,7 +13,7 @@ const Home = (props) => {
       <ShowSearchResult />
       <Filtrado />
       <Cards />
-      <Paginado/>
+      <Paginado />
     </>
   );
 };

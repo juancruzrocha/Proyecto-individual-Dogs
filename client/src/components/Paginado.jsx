@@ -33,8 +33,7 @@ const Paginado = (props) => {
   }, [currentPage, dogs, howManyDogsPerPage]);
 
   useEffect(() => {
-    console.log("soy el dogs que mutoo", dogs);
-  }, [dogs]);
+      }, [dogs]);
 
   return (
     <>
