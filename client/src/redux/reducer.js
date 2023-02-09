@@ -3,18 +3,22 @@ import {
   GET_DOG_DETAIL,
   SEARCH_RESULT,
   ORDER_BY_NAME,
+
   PAGINATE_CHANGER,
   CREATE_DOG,
 } from "./actions";
 import { orderDogsByName } from "./../controllers/orderDogsByName";
+
 
 const initialState = {
   dogs: [],
   temperaments: [],
   dogDetail: [],
   searchResult: [],
+
   renderDogs: [],
   createdDogs: [],
+
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -32,11 +36,14 @@ const rootReducer = (state = initialState, action) => {
     case SEARCH_RESULT:
       return {
         ...state,
+
         searchResult: [...state.searchResult, ...action.payload],
+
         showSearchResult: true,
       };
 
     case ORDER_BY_NAME:
+
       return {
         ...state,
         dogs: [...orderDogsByName(state, action)],
@@ -53,6 +60,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         createdDogs: [...state.createdDogs ,action.payload],
+
       };
 
     default:

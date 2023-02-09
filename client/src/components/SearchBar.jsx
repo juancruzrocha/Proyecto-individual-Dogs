@@ -25,7 +25,7 @@ const SearchBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(searchResult(searchBarResult(busqueda)))
+    dispatch(searchResult(searchBarResult(busqueda)));
   };
 
   return (
@@ -38,11 +38,7 @@ const SearchBar = (props) => {
           placeholder="Search by breed"
           onChange={handleChange}
         />
-        <input
-          type="submit"
-          value="Search"
-          // onClick={dispatch(searchResult(searchBarResult(busqueda)))}
-        />
+        <input type="submit" value="Search" />
       </form>
     </>
   );

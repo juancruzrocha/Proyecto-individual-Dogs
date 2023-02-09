@@ -5,6 +5,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const PAGINATE_CHANGER = "PAGINATE_CHANGER";
 export const CREATE_DOG = "CREATE_DOG"
 
+
 export const getDogs = () => {
   return function (dispatch) {
     fetch("https://api.thedogapi.com/v1/breeds")
@@ -40,3 +41,4 @@ export const paginateChanger = (payload) => {
 export const createDog = (dog) => {
   return { type: CREATE_DOG, payload: dog}
 }
+

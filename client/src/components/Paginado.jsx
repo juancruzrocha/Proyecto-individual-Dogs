@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { paginateChanger } from "../redux/actions";
 //import { connect } from "react-redux";
 
+
 const Paginado = (props) => {
   const dispatch = useDispatch();
   //Estado global dogs

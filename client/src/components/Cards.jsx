@@ -9,10 +9,11 @@ import { useEffect, useState } from "react";
 import { getDogs } from "../redux/actions";
 
 const Cards = (props) => {
-  //Hooks y estados
+  //uso de Hooks y estados
   const dispatch = useDispatch();
   const renderDogs = useSelector((state) => state.renderDogs);
   const [dogList, setDogList] = useState([]);
+
 
   //hace la peticion a la API solamente una vez
   useEffect(() => {
@@ -23,10 +24,11 @@ const Cards = (props) => {
     setDogList(renderDogs);
   }, [renderDogs]);
 
-  return (
-    <>
-      <div className={estilos.contenedorCards}>
+return (
+       <>
+       <div className={estilos.contenedorCards}
         {dogList?.map((dog) => {
+
           return (
             <div className={estilos.Card} key={dog.id}>
               <Card
