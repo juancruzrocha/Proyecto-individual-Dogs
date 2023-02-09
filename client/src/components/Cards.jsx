@@ -26,7 +26,7 @@ const Cards = (props) => {
 
 return (
        <>
-       <div className={estilos.contenedorCards}
+       <div className={estilos.contenedorCards}>
         {dogList?.map((dog) => {
 
           return (

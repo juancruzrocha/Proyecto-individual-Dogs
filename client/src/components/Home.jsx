@@ -3,16 +3,14 @@ import Cards from "./Cards";
 import Filtrado from "./Filtrado";
 import NavBar from "./NavBar";
 import ShowSearchResult from "./ShowSearchResult";
-import Filtros from "./Filtros"
+import Paginado from "./Paginado";
 
 const Home = (props) => {
   return (
     <>
       <NavBar />
       <ShowSearchResult />
-
       <Filtrado />
-
       <Cards />
       <Paginado />
     </>
