@@ -9,7 +9,6 @@ const DogDetail = (props) => {
   const myDog = useSelector((state) => state.dogDetail);
   const params = useParams();
   const dispatch = useDispatch();
-  //console.log("soy myDog", myDog);
 
   //tengo que usar este otro estado porque en dogDetail no me viene la IMG
   const allDogs = useSelector((state) => state.dogs);
@@ -24,9 +23,8 @@ const DogDetail = (props) => {
 
   return (
     <>
-        <NavBar />
+      <NavBar />
       <div className={estilos.contenedor}>
-
         <h3> Breed Detail: </h3>
         <h3>Breed Name: {myDog.name}</h3>
         {imgDog ? (

@@ -13,6 +13,9 @@ const NavBar = (props) => {
         <li>
           <Link to="/Home">Home</Link>
         </li>
+        <li>
+          <Link to="/DogCreate">Create Breed</Link>
+        </li>
       </ul>
 
       <SearchBar/>
