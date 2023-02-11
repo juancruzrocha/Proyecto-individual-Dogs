@@ -12,13 +12,11 @@ import { orderDogsByName } from "./../controllers/orderDogsByName";
 
 const initialState = {
   dogs: [],
-  temperaments: [],
   dogDetail: [],
-  searchResult: [],
-
-  renderDogs: [],
   createdDogs: [],
-
+  renderDogs: [],
+  temperaments: [],
+  searchResult: [],
 };
 
 const rootReducer = (state = initialState, action) => {

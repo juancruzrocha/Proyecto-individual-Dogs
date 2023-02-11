@@ -1,8 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+//Actions
 import { searchResult } from "../redux/actions";
-import { firstToUpperCase } from "../helpers/firstToUpperCase";
+
+//Funciones auxiliares
+import { firstToUpperCase } from "../controllers/firstToUpperCase";
+import searchBarResult from "../controllers/searchBarResult";
 
 const SearchBar = (props) => {
   // estado local del input de busqueda
@@ -15,17 +20,10 @@ const SearchBar = (props) => {
     setBusqueda(firstToUpperCase(e.target.value));
   };
 
-  // guardamos en un array el resultado de la busqueda
-  const searchBarResult = (terminoBusqueda) => {
-    let result = state.filter((dog) => dog.name === terminoBusqueda);
-    return result;
-  };
-
-  //para que cuando se enviua el form no se recargue la pagina
+  //para que cuando se envia el form no se recargue la pagina
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(searchResult(searchBarResult(busqueda)));
+    dispatch(searchResult(searchBarResult(busqueda,state)));
   };
 
   return (

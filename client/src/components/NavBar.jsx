@@ -2,9 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import estilos from "./NavBar.module.css";
 import SearchBar from './SearchBar';
+import Timer from './Timer'
+
 
 const NavBar = (props) => {
-  return (
+  return (<>
+    <div className={estilos.online}>
+      Online: <Timer/>  
+    </div>
     <div className={estilos.contenedor}>
       <ul>
         <li>
@@ -20,6 +25,7 @@ const NavBar = (props) => {
 
       <SearchBar/>
     </div>
+  </>
   );
 };
 

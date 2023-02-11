@@ -1,4 +1,5 @@
 import React from "react";
+import estilo from './Filtrado.module.css'
 import { useDispatch } from "react-redux";
 //Actions
 import { orderByName } from "../redux/actions";
@@ -13,7 +14,7 @@ const Filtrado = (props) => {
   };
 
   return (
-    <div className="order button container">
+    <div className={estilo.fondo}>
       <select name="order" onChange={(e) => handleSort(e)}>
         <option value="asc">Ascendent order</option>
         <option value="des">Descendent order</option>
