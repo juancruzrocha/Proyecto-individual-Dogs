@@ -2,13 +2,13 @@ import React from "react";
 import estilos from './CreateDog.module.css'
 
 import NavBar from "./NavBar";
-import Form from "./Form";
+import CreateForm from "./CreateForm";
 
 const CreateDog = (props) => {
   return (
     <div className={estilos.fondo}>
       <NavBar />
-      <Form />
+      <CreateForm />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 // guardamos en un array el resultado de la busqueda
 
-export default function (terminoBusqueda, state) {
+function searchBarResult (terminoBusqueda, state) {
   return state.filter((dog) => dog.name === terminoBusqueda);
 }
+
+export default searchBarResult
