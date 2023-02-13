@@ -13,6 +13,10 @@ const initialForm = {
 
 const validationsForm = (form) => {
 const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+const regexHeight = /^(0?[0-9]|[1-9][0-9]|1[0-1][0-9]|120)$/;
+const regexWeight = /^([1-9][0-9]{0,1}|0)$/;
+const regexLifeSpan = /^([0-9]|[1-2][0-9])$/;
+
 
   let errors = {}; // cada error que tengamos lo guardamos aca
 
@@ -21,28 +25,16 @@ const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
   } else if(!regexName.test(form.name)){
     errors.name = '*Invalid name';}
   
-  if(typeof(form.height)!== Number){
-    errors.height='*Height must be a number'
-  } else if(form.height < 0) {
-    errors.height='*Height must be a positive number'
-  } else if(form.height > 120) {
-    errors.height='*If your dog is taller than 120cm would be a record Guinness.'
+  if(!regexHeight.test(form.height)){
+    errors.height='*Height must be a number between 0 and 120cm.'
   }
   
-  if(typeof(form.weight)!== Number){
-    errors.weight='*Height must be a number'
-  } else if(form.weight < 0) {
-    errors.weight = '*Weight must be a positive number'
-  } else if(form.weight > 156) {
-    errors.weight = '*If your dog weighs more than 120 it would be a Guinness record.'
+  if(!regexWeight.test(form.weight)){
+    errors.weight='*Weight must be a number between 0 and 159kg.'
   }
 
-  if(typeof(form.lifeSpan)!== Number){
-    errors.weight='*LifeSpan must be a number'
-  } else if(form.lifeSpan < 0 ){
-    errors.lifeSpan='*LifeSpan must be a positive number'
-  } else if(form.lifeSpan){
-    errors.lifeSpan = '*If your dog lives more than 29 years it would be a Guinness record.'
+  if(!regexLifeSpan.test(form.lifeSpan)){
+    errors.lifeSpan='*LifeSpan must be a number between 0 and 29 yrs.'
   }
 
   //el resto de las validaciones van aqui debajo

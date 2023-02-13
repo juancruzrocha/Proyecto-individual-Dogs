@@ -117,7 +117,7 @@ __Ruta principal__: debe contener
   - Temperamento
   - Peso
 - [ ] Botones/Opciones para filtrar por:
-  - Temperamento
+  - Temperamento   (mirar documentacion de react - select [ con as opciones])
   - Raza existente (es decir las que vienen de la API) o agregada por nosotros (creadas mediante el form)
 - [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por:
   - Orden alfabético
