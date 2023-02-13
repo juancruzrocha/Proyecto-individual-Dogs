@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+  }
+
+input[type='number']{
+    width: 110px;
+}
+
+.input{
+   margin: 15px;
+}
+
+button{
+    margin-left: 150px;
+}
+
+.error{
+    font-weight: bold;
+    color: rgb(182, 36, 36);
+}

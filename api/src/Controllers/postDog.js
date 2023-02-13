@@ -13,13 +13,13 @@ postDog.post("/", async (req, res) => {
       lifeSpan,
       });
 
-    const temperament = await Temperament.findAll({
-      where: { id: temperament_id },
-    });
+    // const temperament = await Temperament.findAll({
+    //   where: { id: temperament_id },
+    // });
 
-    const mergedResponse = await dog.addTemperaments(temperament);
+    // const mergedResponse = await dog.addTemperaments(temperament);
 
-    res.status(200).send(mergedResponse);
+    res.status(200).send('Dog created succesfully');
 
   } catch (error) {
     res.status(400).send(error.message);
