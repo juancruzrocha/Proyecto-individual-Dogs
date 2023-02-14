@@ -18,7 +18,7 @@ const Cards = (props) => {
   //hace la peticion a la API solamente una vez
   useEffect(() => {
     dispatch(getDogs());
-  }, [dispatch]);
+  }, [dispatch]); 
 
   useEffect(() => {
     setDogList(renderDogs);
