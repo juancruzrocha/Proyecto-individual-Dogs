@@ -1,8 +1,12 @@
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
     padding-left: 70px;
   }
+.form{
+    flex-direction: row;
+}
 
 input[type='number']{
     width: 110px;
@@ -14,9 +18,17 @@ input[type='number']{
 
 button{
     margin-left: 150px;
+    margin-bottom: 50px;
 }
 
 .error{
     font-weight: bold;
-    color: rgb(182, 36, 36);
+    color: rgb(250, 42, 42);
+    font-size: 15px;
+}
+
+
+select{
+    height: 200px;
+    width: 150px;
 }

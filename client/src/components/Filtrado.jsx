@@ -1,25 +1,95 @@
 import React from "react";
-import estilo from './Filtrado.module.css'
-import { useDispatch } from "react-redux";
+import estilo from "./Filtrado.module.css";
+//HOOKS
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 //Actions
-import { orderByName } from "../redux/actions";
+import {
+  orderByName,
+  orderByWeight,
+  filterDogsByTemperament,
+  getTemperaments,
+  getDogs
+} from "../redux/actions";
 
 const Filtrado = (props) => {
   const dispatch = useDispatch();
 
+  const allTemperaments = useSelector((state) => state.temperaments);
+
   // handleSort: despacha la funcion que ordena los perros
-  const handleSort = (e) => {
+  const handleSortByAlfabet = (e) => {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
   };
 
+  const handleSortByWeight = (e) => {
+    e.preventDefault();
+    dispatch(orderByWeight(e.target.value));
+  };
+
+  const handleFilterByTemperament = (e) => {
+    e.preventDefault();
+    dispatch(filterDogsByTemperament(e.target.value));
+  };
+  const handleReset = (e)=>{
+
+    dispatch(getDogs())
+  }
+  //hace la peticion a la API solamente una vez
+  useEffect(() => {
+    dispatch(getTemperaments());
+  }, []);
+
   return (
-    <div className={estilo.fondo}>
-      <select name="order" onChange={(e) => handleSort(e)}>
-        <option value="asc">Ascendent order</option>
-        <option value="des">Descendent order</option>
-      </select>
-    </div>
+    <>
+      <div className={estilo.container}>
+        <div className={estilo.filters}>
+        <label> To change order: </label>
+          <select
+            className={estilo.select}
+            name="orderByName"
+            onChange={(e) => handleSortByAlfabet(e)}
+          >
+            <option value="asc">Alfabet ascendent order</option>
+            <option value="des">Alfabet descendent order</option>
+          </select>
+        </div>
+
+        <div className={estilo.filters}>
+        <label> To change order: </label>
+          <select
+            className={estilo.select}
+            name="orderByWeight"
+            onChange={(e) => handleSortByWeight(e)}
+          >
+            <option value="asc">Ascendent weight order</option>
+            <option value="des">Descendent weight order</option>
+          </select>
+        </div>
+
+        <div className={estilo.filters}>
+          <label> Combine filters to find your perfect dog: </label>
+          <select
+            className={estilo.select}
+            name="filterByTemperament"
+            onChange={(e) => handleFilterByTemperament(e)}
+            size='small'
+          >
+            {allTemperaments?.map((temp) => {
+              return (
+                <option value={temp.name} name={temp.name} key={temp.id}>
+                  {temp.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div >
+          <button className={estilo.filters} onClick={()=>{ handleReset()}}>RESET</button>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -1,14 +1,19 @@
+//ACTIONS
 import {
   GET_DOGS,
   GET_DOG_DETAIL,
   SEARCH_RESULT,
   ORDER_BY_NAME,
-
+  ORDER_BY_WEIGHT,
+  FILTER_DOGS_BY_TEMPERAMENTS,
+  GET_TEMPERAMENTS,
   PAGINATE_CHANGER,
   CREATE_DOG,
 } from "./actions";
+//CONTROLLERS
 import { orderDogsByName } from "./../controllers/orderDogsByName";
-
+import { orderDogsByWeight } from "./../controllers/orderDogsByWeight"
+import { filterDogsByTemperament } from "../controllers/filterDogsByTemperament"
 
 const initialState = {
   dogs: [],
@@ -25,6 +30,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: action.payload,
+      };
+
+      case GET_TEMPERAMENTS:
+      return {
+        ...state,
+        temperaments: action.payload,
       };
     case GET_DOG_DETAIL:
       return {
@@ -45,8 +56,22 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: [...orderDogsByName(state, action)],
-        propiedadDePrueba: true,
       };
+
+      case ORDER_BY_WEIGHT:
+
+      return {
+        ...state,
+        dogs: [...orderDogsByWeight(state, action)],
+      };
+
+      case FILTER_DOGS_BY_TEMPERAMENTS:
+
+      return {
+        ...state,
+        dogs: [...filterDogsByTemperament(state,action)]
+      }
+
 
     case PAGINATE_CHANGER:
       return {
