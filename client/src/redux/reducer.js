@@ -6,10 +6,12 @@ import {
   ORDER_BY_NAME,
   ORDER_BY_WEIGHT,
   FILTER_DOGS_BY_TEMPERAMENTS,
+  GET_DOGS_FROM_DB,
   GET_TEMPERAMENTS,
   PAGINATE_CHANGER,
   CREATE_DOG,
 } from "./actions";
+
 //CONTROLLERS
 import { orderDogsByName } from "./../controllers/orderDogsByName";
 import { orderDogsByWeight } from "./../controllers/orderDogsByWeight"
@@ -31,7 +33,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         dogs: action.payload,
       };
-
+   
       case GET_TEMPERAMENTS:
       return {
         ...state,
@@ -40,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_DOG_DETAIL:
       return {
         ...state,
-        dogDetail: action.payload[0],
+        dogDetail: action.payload,
       };
     case SEARCH_RESULT:
       return {
@@ -70,6 +72,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         dogs: [...filterDogsByTemperament(state,action)]
+      }
+
+      case GET_DOGS_FROM_DB:
+
+      return {
+        ...state,
+        dogs: action.payload
       }
 
 

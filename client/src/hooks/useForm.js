@@ -49,7 +49,7 @@ export const useForm = (initialForm, validateForm) => {
     e.preventDefault();
 
     const finalForm = formaterBody(form);
-    console.log(finalForm)
+    //console.log(finalForm)
 
     axios.post("http://localhost:3001/postDog",finalForm)
     .then((data) => alert('Dog created Succesfully'))

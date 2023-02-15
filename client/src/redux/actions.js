@@ -7,18 +7,19 @@ export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const PAGINATE_CHANGER = "PAGINATE_CHANGER";
 export const CREATE_DOG = "CREATE_DOG"
 export const FILTER_DOGS_BY_TEMPERAMENTS = "FILTER_DOGS_BY_TEMPERAMENTS"
+export const GET_DOGS_FROM_DB = "GET_DOGS_FROM_DB"
 
 export const getDogs = () => {
   return function (dispatch) {
-    fetch("https://api.thedogapi.com/v1/breeds")
+    fetch("http://localhost:3001/dogs")
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_DOGS, payload: data }));
   };
 };
 
-export const getDogDetail = (name) => {
+export const getDogDetail = (id) => {
   return function (dispatch) {
-    fetch(`https://api.thedogapi.com/v1/breeds/search?q=${name}`)
+    fetch(`http://localhost:3001/dogs/${id}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_DOG_DETAIL, payload: data }));
   };
@@ -52,7 +53,13 @@ export const filterDogsByTemperament = (payload) => {
   return { type: FILTER_DOGS_BY_TEMPERAMENTS, payload  };
 };
 
-
+export const getDogsFromDb = (payload) => {
+  return function (dispatch) {
+    fetch("http://localhost:3001/dogs/dogsDb")
+      .then((response) => response.json())
+      .then((payload)=> dispatch({ type: GET_DOGS_FROM_DB, payload}))
+  }
+};
 
 export const paginateChanger = (payload) => {
   return { type: PAGINATE_CHANGER, payload }

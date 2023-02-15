@@ -14,30 +14,30 @@ const Cards = (props) => {
   const renderDogs = useSelector((state) => state.renderDogs);
   const [dogList, setDogList] = useState([]);
 
-
   //hace la peticion a la API solamente una vez
   useEffect(() => {
     dispatch(getDogs());
-  }, [dispatch]); 
+  }, []);
 
   useEffect(() => {
     setDogList(renderDogs);
   }, [renderDogs]);
 
-return (
-       <>
-       <div className={estilos.contenedorCards}>
+  return (
+    <>
+      <div className={estilos.contenedorCards}>
         {dogList?.map((dog) => {
-
+          console.log('estoy buscando el id', dog.id)
           return (
             <div className={estilos.Card} key={dog.id}>
               <Card
                 name={dog.name}
-                image={dog.image.url}
+                image={dog.image}
                 temperament={dog.temperament}
-                weight={dog.weight.metric}
+                weight={dog.weight}
                 id={dog.id}
-              />
+                key={dog.id+1}
+                />
             </div>
           );
         })}
