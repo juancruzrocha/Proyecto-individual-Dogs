@@ -6,7 +6,7 @@ const getTemperaments = async () =>{
    
     try {
         let listTempers = await Temperament.findAll()
-        console.log('Primer listTempers',await listTempers)
+       
         if(listTempers.length) return listTempers
         
        listTempers = await uploadTemperaments(); // ejecutamos la funcion para cargar la BD y la guardamos en una variable para evaluarla si no tiene algun error
@@ -14,7 +14,7 @@ const getTemperaments = async () =>{
 
 
         var listedTempers = await Temperament.findAll()
-        console.log('segundo listTempers', listedTempers)
+        
         return listedTempers
         
     } catch (error) {

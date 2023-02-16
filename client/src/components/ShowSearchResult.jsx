@@ -9,7 +9,6 @@ import style from './ShowSearchResult.module.css'
 const ShowSearchResult = (props) => {
   const state = useSelector((state) => state);
  
-  
   return state.showSearchResult === true ? (
     <>
       <h1 className={style.title}>SearchResult:</h1>

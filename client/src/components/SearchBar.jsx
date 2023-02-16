@@ -23,8 +23,7 @@ const SearchBar = (props) => {
   //para que cuando se envia el form no se recargue la pagina
   const handleSubmit = () => {
     const data = document.getElementById("data");
-    console.log("soy data", data);
-
+  
     dispatch(searchResult(data.value));
   };
 

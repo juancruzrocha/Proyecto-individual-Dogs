@@ -11,6 +11,7 @@ import {
   getDogsFromDb,
   getTemperaments,
   getDogs,
+  emptySearchResult
 } from "../redux/actions";
 
 const Filtrado = (props) => {
@@ -33,14 +34,14 @@ const Filtrado = (props) => {
     e.preventDefault();
     dispatch(filterDogsByTemperament(e.target.value));
   };
-  
+
   const handleShowCreatedDogs = (e) => {
-    dispatch(getDogsFromDb())
-  }
+    dispatch(getDogsFromDb());
+  };
 
   const handleReset = (e) => {
     dispatch(getDogs());
-    
+    dispatch(emptySearchResult());
   };
   //hace la peticion a la API solamente una vez
   useEffect(() => {
@@ -91,16 +92,15 @@ const Filtrado = (props) => {
             })}
           </select>
         </div>
-       
 
         <div className={estilo.filters}>
           <label> Choose what dogs to see: </label>
-          <select
-            className={estilo.select}
-            name="API or DB"
-            
+          <select className={estilo.select} name="API or DB">
+            <option
+              value="DB dogs"
+              name="DB dogs"
+              onClick={() => handleShowCreatedDogs()}
             >
-            <option value="DB dogs" name="DB dogs" onClick={() => handleShowCreatedDogs()}>
               Created dogs
             </option>
           </select>

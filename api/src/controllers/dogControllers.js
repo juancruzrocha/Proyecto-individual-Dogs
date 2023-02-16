@@ -47,11 +47,9 @@ const getDogsDb = async () => {
 
 const searchDogByName = async (name) => {
   try {
-    console.log('soy el name---------------.', name)
     const matchedDogs = await findDogsByName(name)
     if(typeof(matchedDogs) === 'string') throw new Error(matchedDogs)
   
-    console.log('soy el resultado de busqueda', matchedDogs)
    
     return matchedDogs
     

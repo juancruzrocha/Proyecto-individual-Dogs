@@ -1,13 +1,14 @@
 export const GET_DOGS = "GET_DOGS";
 export const GET_DOG_DETAIL = "GET_DOG_DETAIL";
-export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS"
+export const GET_DOGS_FROM_DB = "GET_DOGS_FROM_DB";
+export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
 export const SEARCH_RESULT = "SEARCH_RESULT";
+export const EMPTY_SEARCH_RESULT = "EMPTY_SEARCH_RESULT";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const PAGINATE_CHANGER = "PAGINATE_CHANGER";
-export const CREATE_DOG = "CREATE_DOG"
-export const FILTER_DOGS_BY_TEMPERAMENTS = "FILTER_DOGS_BY_TEMPERAMENTS"
-export const GET_DOGS_FROM_DB = "GET_DOGS_FROM_DB"
+export const FILTER_DOGS_BY_TEMPERAMENTS = "FILTER_DOGS_BY_TEMPERAMENTS";
+export const CREATE_DOG = "CREATE_DOG";
 
 export const getDogs = () => {
   return function (dispatch) {
@@ -39,6 +40,9 @@ return function (dispatch) {
     .then((response) => response.json())
     .then((data) => dispatch({ type: SEARCH_RESULT, payload: data }));
 };
+}
+export const emptySearchResult = (payload) => {
+  return {type: EMPTY_SEARCH_RESULT, payload}
 }
 
 export const orderByName = (payload) => {

@@ -8,7 +8,7 @@ temperamentsRouter.get("/", async (req, res) => {
 
     try {
         const listedTemperaments = await getTemperaments()
-        console.log('listedTemperaments',listedTemperaments)
+       
         if(typeof(listedTemperaments) === 'string') throw new Error(listedTemperaments)
 
         res.status(200).send(listedTemperaments)

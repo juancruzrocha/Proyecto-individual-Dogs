@@ -6,18 +6,13 @@ const {
   getCompleteListDogs,
   searchDogByName,
   searchDogById,
-  createDog
+  createDog,
 } = require("../controllers/dogControllers");
 
-
-dogRouter.get('/dogsDb' , async (req,res) => {
-
-   const dogListDb = await getDogsDb();
-   console.log('soy dogListDb', dogListDb)
-   res.status(200).send(dogListDb)
-
-})
-
+dogRouter.get("/dogsDb", async (req, res) => {
+  const dogListDb = await getDogsDb();
+  res.status(200).send(dogListDb);
+});
 
 dogRouter.get("/", async (req, res) => {
   try {
@@ -25,17 +20,15 @@ dogRouter.get("/", async (req, res) => {
 
     if (!name) {
       const completeDogList = await getCompleteListDogs();
-      if (typeof(completeDogList) === "string") throw new Error(completeDogList); //Si es un string es porque trae el error desde la funcion del controller
-
-      //console.log(await searchDogByName('American'))
+      if (typeof completeDogList === "string") throw new Error(completeDogList); //Si es un string es porque trae el error desde la funcion del controller
 
       return res.status(200).send(completeDogList);
     }
 
     const matchedDogsByName = await searchDogByName(name);
-    if (typeof(matchedDogsByName) === "string")
+    if (typeof matchedDogsByName === "string")
       throw new Error(matchedDogsByName);
-    
+
     return res.status(200).send(matchedDogsByName);
   } catch (error) {
     res.status(400).send(error.message);
@@ -45,9 +38,9 @@ dogRouter.get("/", async (req, res) => {
 dogRouter.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const matchedDog = await searchDogById(id);
-  
+
     if (typeof matchedDog === "string") throw new Error(matchedDog);
 
     return res.status(200).send(matchedDog);
@@ -56,31 +49,27 @@ dogRouter.get("/:id", async (req, res) => {
   }
 });
 
-
 dogRouter.post("/", async (req, res) => {
   try {
-    const newDogCreated = await createDog(req.body) 
-    if(typeof(newDogCreated)==='string') throw new Error(newDogCreated)
-    
-   return res.status(200).send(newDogCreated);
+    const newDogCreated = await createDog(req.body);
+    if (typeof newDogCreated === "string") throw new Error(newDogCreated);
 
+    return res.status(200).send(newDogCreated);
   } catch (error) {
     return res.status(400).send(error.message);
   }
 });
 
-dogRouter.delete('/:id',async (req,res) =>{
-    try {
-      const { id } = req.params
-      
-      await Dog.destroy({where:{ id }})
+dogRouter.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
 
-      res.status(200).send('Dog deleted succesfully')
+    await Dog.destroy({ where: { id } });
 
-    } catch (error) {
-      res.status(400).send(error)
-    }
-})
-
+    res.status(200).send("Dog deleted succesfully");
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
 
 module.exports = dogRouter;
