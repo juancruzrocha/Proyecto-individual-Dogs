@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import estilos from './SearchBar.module.css'
 
 //Actions
 import { searchResult } from "../redux/actions";
 
 //Funciones auxiliares
 import { firstToUpperCase } from "../controllers/firstToUpperCase";
-import searchBarResult from "../controllers/searchBarResult";
 
 const SearchBar = (props) => {
   // estado local del input de busqueda
@@ -21,32 +21,30 @@ const SearchBar = (props) => {
   };
 
   //para que cuando se envia el form no se recargue la pagina
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(searchResult(searchBarResult(busqueda,state)));
+  const handleSubmit = () => {
+    const data = document.getElementById("data");
+    console.log("soy data", data);
+
+    dispatch(searchResult(data.value));
   };
 
   return (
     <>
-      <h2>searchBar component</h2>
-      <form onSubmit={handleSubmit}>
+      <h1 className={estilos.title}>Henry Project Dog App</h1>
+      <div className={estilos.input_button}>
         <input
           value={busqueda}
           type="text"
           placeholder="Search by breed"
           onChange={handleChange}
+          id="data"
         />
-        <input type="submit" value="Search" />
-      </form>
+        <button className={estilos.button} onClick={() => handleSubmit()} value="Search">
+          Search
+        </button>
+      </div>
     </>
   );
 };
 
 export default SearchBar;
-
-// console.log("soy el global-state.dogs:", state);
-// console.log("soy el local-state-busqueda:", busqueda);
-// console.log(
-//   "soy el resultado de la ejecucion de searchBarResult(busqueda)",
-//   searchBarResult(busqueda)
-// );

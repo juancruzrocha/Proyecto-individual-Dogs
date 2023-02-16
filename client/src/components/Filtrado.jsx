@@ -40,6 +40,7 @@ const Filtrado = (props) => {
 
   const handleReset = (e) => {
     dispatch(getDogs());
+    
   };
   //hace la peticion a la API solamente una vez
   useEffect(() => {

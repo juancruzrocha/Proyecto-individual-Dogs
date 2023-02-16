@@ -33,13 +33,13 @@ export const getTemperaments = () => {
   };
 };
 
-export const searchResult = (searchBarResult) => {
-  return function (dispatch) {
-    if (searchBarResult.length) {
-      return dispatch({ type: SEARCH_RESULT, payload: searchBarResult });
-    }
-  };
+export const searchResult = (name) => {
+return function (dispatch) {
+  fetch(`http://localhost:3001/dogs?name=${name}`)
+    .then((response) => response.json())
+    .then((data) => dispatch({ type: SEARCH_RESULT, payload: data }));
 };
+}
 
 export const orderByName = (payload) => {
   return { type: ORDER_BY_NAME, payload  };
@@ -53,7 +53,7 @@ export const filterDogsByTemperament = (payload) => {
   return { type: FILTER_DOGS_BY_TEMPERAMENTS, payload  };
 };
 
-export const getDogsFromDb = (payload) => {
+export const getDogsFromDb = () => {
   return function (dispatch) {
     fetch("http://localhost:3001/dogs/dogsDb")
       .then((response) => response.json())
@@ -71,3 +71,11 @@ export const createDog = (dog) => {
   }
 }
 
+
+
+/* 
+export const filterDogsByTemperament = (payload) => dispatch({ type: FILTER_DOGS_BY_TEMPERAMENTS, payload  })
+  
+
+
+*/

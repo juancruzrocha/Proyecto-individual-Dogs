@@ -48,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
 
-        searchResult: [...state.searchResult, ...action.payload],
+        searchResult: [...action.payload],
 
         showSearchResult: true,
       };

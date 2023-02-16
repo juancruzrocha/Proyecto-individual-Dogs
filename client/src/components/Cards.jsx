@@ -7,8 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 //Actions
 import { getDogs } from "../redux/actions";
+//Controllers
+import { verifyData } from "../controllers/verifyData";
 
 const Cards = (props) => {
+  
   //uso de Hooks y estados
   const dispatch = useDispatch();
   const renderDogs = useSelector((state) => state.renderDogs);
@@ -27,17 +30,18 @@ const Cards = (props) => {
     <>
       <div className={estilos.contenedorCards}>
         {dogList?.map((dog) => {
-         
+          const temperament = verifyData(dog);
+
           return (
             <div className={estilos.Card} key={dog.id}>
               <Card
                 name={dog.name}
                 image={dog.image}
-                temperament={dog.temperament}
+                temperament={temperament}
                 weight={dog.weight}
                 id={dog.id}
-                key={dog.id+1}
-                />
+                key={dog.id + 1}
+              />
             </div>
           );
         })}

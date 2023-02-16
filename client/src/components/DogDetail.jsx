@@ -25,18 +25,7 @@ const DogDetail = (props) => {
         {myDog.bred_for ? <h3>Bred for: {myDog.bred_for} </h3> : ""}
         {myDog.lifeSpan ? <h3>Life span: {myDog.lifeSpan}</h3> : ""}
         {myDog.temperament && myDog.temperament ? <h3>Temperament: {myDog.temperament}</h3> : ""}       
-        {myDog.temperaments ? (
-          <>
-            <h3>Temperaments:</h3>
-            <ul>
-              {myDog.temperaments.map((temp) => (
-                <li key={temp.id}>{temp.name}</li>
-              ))}{" "}
-            </ul>
-          </>
-        ) : (
-          ""
-        )}
+       
       </div>
     </>
   );

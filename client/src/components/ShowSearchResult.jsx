@@ -1,16 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
+//componentes
 import Card from "../components/Card";
+//estilos
 import estilos from "./Cards.module.css";
+import style from './ShowSearchResult.module.css'
 
 const ShowSearchResult = (props) => {
   const state = useSelector((state) => state);
  
   
   return state.showSearchResult === true ? (
-    
     <>
-      <h1>SearchResult:</h1>
+      <h1 className={style.title}>SearchResult:</h1>
       <div className={estilos.contenedorCards}>
         {state.searchResult?.map((dog) => {
           return (
@@ -32,39 +34,3 @@ const ShowSearchResult = (props) => {
 
 export default ShowSearchResult;
 
-
-
-
-
-/*
-let myDog;
-let temperaments;
-  if(typeof(id) == 'number')
-
-else  {
-    return (
-      <div className={estilos.card}>
-        <Link to={`/DogDetail/${id}`}>
-          <h3 className={estilos.titulo} onClick={ ()=>dispatch(getDogDetail(id))}  >{name}</h3>
-        </Link>
-        {image && <img className={estilos.img} src={image} alt="Imagen no disponible" />}
-        {temperaments && temperaments ? (
-          <>
-            <h3>Temperaments:</h3>
-            <ul>
-              {myDog.temperaments.map((temp) => (
-                <li key={temp.id}>{temp.name}</li>
-              ))}{" "}
-            </ul>
-          </>
-        ) : (
-          ""
-        )}
-        <h2 className={estilos.extras}>Weight: {weight}</h2>
-      </div>
-  );
-
-  }
-
-
-*/
