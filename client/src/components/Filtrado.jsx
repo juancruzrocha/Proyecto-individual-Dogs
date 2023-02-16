@@ -8,8 +8,10 @@ import {
   orderByName,
   orderByWeight,
   filterDogsByTemperament,
+  getDogsFromDb,
   getTemperaments,
-  getDogs
+  getDogs,
+  emptySearchResult
 } from "../redux/actions";
 
 const Filtrado = (props) => {
@@ -32,10 +34,15 @@ const Filtrado = (props) => {
     e.preventDefault();
     dispatch(filterDogsByTemperament(e.target.value));
   };
-  const handleReset = (e)=>{
 
-    dispatch(getDogs())
-  }
+  const handleShowCreatedDogs = (e) => {
+    dispatch(getDogsFromDb());
+  };
+
+  const handleReset = (e) => {
+    dispatch(getDogs());
+    dispatch(emptySearchResult());
+  };
   //hace la peticion a la API solamente una vez
   useEffect(() => {
     dispatch(getTemperaments());
@@ -45,7 +52,7 @@ const Filtrado = (props) => {
     <>
       <div className={estilo.container}>
         <div className={estilo.filters}>
-        <label> To change order: </label>
+          <label> To change order: </label>
           <select
             className={estilo.select}
             name="orderByName"
@@ -57,7 +64,7 @@ const Filtrado = (props) => {
         </div>
 
         <div className={estilo.filters}>
-        <label> To change order: </label>
+          <label> To change order: </label>
           <select
             className={estilo.select}
             name="orderByWeight"
@@ -74,7 +81,7 @@ const Filtrado = (props) => {
             className={estilo.select}
             name="filterByTemperament"
             onChange={(e) => handleFilterByTemperament(e)}
-            size='small'
+            size="small"
           >
             {allTemperaments?.map((temp) => {
               return (
@@ -85,8 +92,28 @@ const Filtrado = (props) => {
             })}
           </select>
         </div>
-        <div >
-          <button className={estilo.filters} onClick={()=>{ handleReset()}}>RESET</button>
+
+        <div className={estilo.filters}>
+          <label> Choose what dogs to see: </label>
+          <select className={estilo.select} name="API or DB">
+            <option
+              value="DB dogs"
+              name="DB dogs"
+              onClick={() => handleShowCreatedDogs()}
+            >
+              Created dogs
+            </option>
+          </select>
+        </div>
+        <div>
+          <button
+            className={estilo.filters}
+            onClick={() => {
+              handleReset();
+            }}
+          >
+            RESET
+          </button>
         </div>
       </div>
     </>

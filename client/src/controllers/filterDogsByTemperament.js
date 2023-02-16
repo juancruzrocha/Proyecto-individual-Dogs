@@ -8,6 +8,5 @@ export const filterDogsByTemperament = (state, action) => {
 
     if (temps?.includes(selectedTemperament)) filtered.push(element);
   });
-  console.log(">>>>>>>>>>>>>>>>>>>>", filtered);
   return filtered;
 };

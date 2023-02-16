@@ -1,8 +1,7 @@
-//en este hook vamos a tener toda la logica que necesitamos en el createForm
+//en este hook personalizado vamos a tener toda la logica que necesitamos para el createForm
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-//ACTIONS
-import { createDog } from "../redux/actions";
+
 //AXIOS
 import axios from 'axios'
 //CONTROLLERS
@@ -14,10 +13,7 @@ export const useForm = (initialForm, validateForm) => {
   //VARIABLES DE ESTADO
   const [form, setForm] = useState(initialForm); // los valores iniciales del formulario los va a recibir como parametro
   const [errors, setErrors] = useState({}); // para guardas los errores y si tiene algo dentro muestro el error
-  const [loading, setLoading] = useState(false); // como vamos a tener el evento que envia el formulario
-  //es importante contemplar un proceso de loading
-  const [response, setResponse] = useState(null); // sera la respuesta del envio del formulario
-
+  
   //FUNCIONES QUE MANEJAN LOS EVENTOS
   // Para que detecte cuando estamos escribiendo y haga el cambio de los valores
   const handleChange = (e) => {
@@ -29,10 +25,11 @@ export const useForm = (initialForm, validateForm) => {
     });
   };
   //solo para el select
+  /////////////////////////////////////////////////////////
   function handleSelect(e) {
     setForm({
       ...form,
-      temperaments: [...form.temperaments, e.target.value],
+      temperament: [...form.temperament, e.target.value],
     });
   }
 
@@ -49,9 +46,8 @@ export const useForm = (initialForm, validateForm) => {
     e.preventDefault();
 
     const finalForm = formaterBody(form);
-    console.log(finalForm)
-
-    axios.post("http://localhost:3001/postDog",finalForm)
+    
+    axios.post("http://localhost:3001/dogs",finalForm)
     .then((data) => alert('Dog created Succesfully'))
     .catch(error=> alert(error))
 
@@ -60,8 +56,6 @@ export const useForm = (initialForm, validateForm) => {
   return {
     form,
     errors,
-    loading,
-    response,
     handleChange,
     handleBlur,
     handleSubmit,

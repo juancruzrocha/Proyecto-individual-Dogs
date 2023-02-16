@@ -12,7 +12,7 @@
   
   .landing__box {
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px 0 rgba(130, 130, 130, 0.37);
     backdrop-filter: blur(2px);
@@ -25,7 +25,7 @@
     padding: 0;
   }
   
-  .landing__button {
+  .button {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bolder;
@@ -38,7 +38,7 @@
     transition: .4s;
   }
   
-  .landing__button:hover {
+  .button:hover {
     cursor: pointer;
     background-color: #ffffff;
     transition: .4s;
