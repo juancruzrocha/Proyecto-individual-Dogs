@@ -27,7 +27,7 @@ const Cards = (props) => {
     <>
       <div className={estilos.contenedorCards}>
         {dogList?.map((dog) => {
-          console.log('estoy buscando el id', dog.id)
+         
           return (
             <div className={estilos.Card} key={dog.id}>
               <Card

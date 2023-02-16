@@ -17,7 +17,7 @@ const initialForm = {
   min_Height: "",
   max_Height: "",
   lifeSpan: "",
-  temperaments: [],
+  temperament: [],
 };
 
 const CreateForm = (props) => {
@@ -27,8 +27,6 @@ const CreateForm = (props) => {
   const {
     form,
     errors,
-    loading,
-    response,
     handleChange,
     handleBlur,
     handleSubmit,
@@ -143,14 +141,14 @@ const CreateForm = (props) => {
           </div>
           <div className={estilos.container}>
             <h4>Temperaments:</h4>
-            <label htmlFor="temperaments">
+            <label htmlFor="temperament">
               Select a couple of temperaments:
             </label>
             <select
               required
               multiple
-              name={form.temperaments}
-              value={form.temperaments}
+              name={form.temperament}
+              value={form.temperament}
               onChange={handleSelect}
               onBlur={handleBlur}
             >
@@ -163,14 +161,14 @@ const CreateForm = (props) => {
               })}
             </select>
             <div name="div para mostrar los temperamentos que ya elegi">
-              {form.temperaments && form.temperaments.length ? (
+              {form.temperament && form.temperament.length ? (
                 <ul>
-                  {[...new Set(form.temperaments)].map((temp) => (
+                  {[...new Set(form.temperament)].map((temp) => (
                     <li key={temp}>{temp}</li>
                   ))}
                 </ul>
               ) : null}
-              <p className={estilos.error}>{errors.temperaments}</p>
+              <p className={estilos.error}>{errors.temperament}</p>
             </div>
           </div>
 

@@ -114,7 +114,7 @@ const searchDogById = async (id) =>{
 
 const createDog = async (body) => {
   try {
-    const { name, height, weight, lifeSpan, temperaments } = body;
+    const { name, height, weight, lifeSpan, temperament } = body;
   
       const newDog = await Dog.create({
         name,
@@ -123,11 +123,11 @@ const createDog = async (body) => {
         lifeSpan,
       });
   
-      temperaments.forEach(async (temp) => {
+      temperament.forEach(async (temp) => {
         const tempDb = await Temperament.findAll({
           where: { name: temp },
         });
-        newDog.addTemperaments(tempDb);
+        newDog.addTemperament(tempDb);
       });
   
       return newDog
