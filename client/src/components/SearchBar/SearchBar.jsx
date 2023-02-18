@@ -1,19 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import estilos from './SearchBar.module.css'
 
 //Actions
-import { searchResult } from "../redux/actions";
+import { searchResult } from "../../redux/actions";
 
 //Funciones auxiliares
-import { firstToUpperCase } from "../controllers/firstToUpperCase";
+import { firstToUpperCase } from "../../controllers/firstToUpperCase";
 
 const SearchBar = (props) => {
   // estado local del input de busqueda
   const [busqueda, setBusqueda] = useState("");
   //estado global que tiene a todos los perros []
-  const state = useSelector((state) => state.dogs);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {

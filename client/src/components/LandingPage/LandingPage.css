@@ -1,5 +1,5 @@
 .landingPage {
-    background-image: url('../images/dogs.jpg');
+    background-image: url('../../images/dogs.jpg');
     background-size: cover;
     background-position: center 0;
     height: 100vh;

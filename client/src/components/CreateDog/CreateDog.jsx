@@ -1,8 +1,8 @@
 import React from "react";
 import estilos from './CreateDog.module.css'
 
-import NavBar from "./NavBar";
-import CreateForm from "./CreateForm";
+import NavBar from "../NavBar/NavBar";
+import CreateForm from "../CreateForm/CreateForm";
 
 const CreateDog = (props) => {
   return (

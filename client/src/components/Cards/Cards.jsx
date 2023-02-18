@@ -1,14 +1,14 @@
 import React from "react";
 //Componentes y estilos
-import Card from "./Card";
+import Card from "../Card/Card";
 import estilos from "./Cards.module.css";
 //Hooks
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 //Actions
-import { getDogs } from "../redux/actions";
+import { getDogs } from "../../redux/actions";
 //Controllers
-import { verifyData } from "../controllers/verifyData";
+import { verifyData } from "../../controllers/verifyData";
 
 const Cards = (props) => {
   

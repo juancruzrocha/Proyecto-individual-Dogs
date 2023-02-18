@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar/NavBar";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { verifyData } from "../../controllers/verifyData"
 
 import estilos from "./DogDetail.module.css";
 
@@ -24,7 +24,11 @@ const DogDetail = (props) => {
         {myDog.height ? <h3>Height: {myDog.height}</h3> : ""}
         {myDog.bred_for ? <h3>Bred for: {myDog.bred_for} </h3> : ""}
         {myDog.lifeSpan ? <h3>Life span: {myDog.lifeSpan}</h3> : ""}
-        {myDog.temperament && myDog.temperament ? <h3>Temperament: {myDog.temperament}</h3> : ""}       
+        {myDog.temperament && myDog.temperament ? <h3>Temperament: {myDog.temperament}</h3> : ""}    
+        
+        {myDog.temperaments && myDog.temperaments.length > 0 && (
+    <h3>Temperament: {verifyData(myDog)}</h3>
+  )}     
        
       </div>
     </>

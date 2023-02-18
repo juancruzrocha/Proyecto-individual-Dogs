@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import estilos from "./Paginado.module.css";
+//HOOKS
 import { useSelector, useDispatch } from "react-redux";
-import { paginateChanger } from "../redux/actions";
+//ACTIONS
+import { paginateChanger } from "../../redux/actions";
 
 const Paginado = (props) => {
   const dispatch = useDispatch();
@@ -19,10 +21,8 @@ const Paginado = (props) => {
   const allPages = Array.from({ length: howManyPages }, (_, i) => i); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   useEffect(()=>{
-    const firstRenderDogs = dogs.slice(0,9);
-    setRenderDogs(firstRenderDogs);
   },[])
-
+  
   useEffect(() => {
     let first = currentPage * howManyDogsPerPage;
     let last = first + howManyDogsPerPage;
@@ -43,7 +43,7 @@ const Paginado = (props) => {
               onClick={() => {
                 setCurrentPage(page);
               }}
-            >
+              >
               {page}
             </button>
           );
@@ -55,3 +55,9 @@ const Paginado = (props) => {
 
 export default Paginado;
 
+
+
+
+// si hay un bug metelo adentro del primer useEffect
+// const firstRenderDogs = dogs.slice(0,9);
+ //setRenderDogs(firstRenderDogs);
