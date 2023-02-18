@@ -12,7 +12,7 @@ import {
   getTemperaments,
   getDogs,
   emptySearchResult
-} from "../redux/actions";
+} from "../../redux/actions";
 
 const Filtrado = (props) => {
   const dispatch = useDispatch();

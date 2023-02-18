@@ -4,11 +4,11 @@ import estilos from "./CreateForm.module.css";
 //Hooks
 import { useDispatch, useSelector } from "react-redux";
 //Hooks personalizados
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../../hooks/useForm";
 //funciones auxiliares
-import { validationsForm } from "./../controllers/validationsForm";
+import { validationsForm } from "../../controllers/validationsForm";
 //actions
-import { getTemperaments } from "../redux/actions";
+import { getTemperaments } from "../../redux/actions";
 
 const initialForm = {
   name: "",

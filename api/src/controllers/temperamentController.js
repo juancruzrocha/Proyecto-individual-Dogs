@@ -29,11 +29,11 @@ const uploadTemperaments = async () => {
         if(typeof(dogListFromApi) === 'string') throw new Error(dogListFromApi)
     
         // dirtyTemperamentsList es un array de strings que tiene varios temperaments por cada string
-        let dirtyTemperamentsList = await dogListFromApi.data.map((dog) => {
+        let dirtyTemperamentsList = await dogListFromApi.data.map((dog) => {  // [ 'sttuborn, active,happy'  etc]
           return dog.temperament;
         });
     
-        let splitedTemperaments = []; //['sttuborn', 'playful', 'playful']
+        let splitedTemperaments = []; //['sttuborn', 'playful', 'playful','playful']
     
         // separo los distintos temperamentos dentro de cada string y los guardo en splitedTemperaments 
         dirtyTemperamentsList.forEach((string) => {

@@ -66,6 +66,7 @@ const findDogsByName = async (name) => {
     if(typeof(completeListOfDogs) === 'string') throw new Error(completeListOfDogs)
 
     let matchedDogs = [];// [{American Bully English}, {American Bully English}]
+    
     completeListOfDogs.forEach((dogCurrent) => {
       const formatedDogNameInToArray = dogCurrent.name
         .toLowerCase()

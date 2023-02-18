@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 //componentes
-import Card from "../components/Card";
+import Card from "../Card/Card";
 //estilos
-import estilos from "./Cards.module.css";
+import estilos from "../Cards/Cards.module.css";
 import style from './ShowSearchResult.module.css'
 
 const ShowSearchResult = (props) => {

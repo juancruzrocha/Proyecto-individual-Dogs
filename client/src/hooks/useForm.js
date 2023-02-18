@@ -1,15 +1,12 @@
 //en este hook personalizado vamos a tener toda la logica que necesitamos para el createForm
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-
 //AXIOS
 import axios from 'axios'
 //CONTROLLERS
 import { formaterBody } from '../controllers/formaterBody'
 
 export const useForm = (initialForm, validateForm) => {
-  //HOOKS
-  const dispatch = useDispatch();
+  
   //VARIABLES DE ESTADO
   const [form, setForm] = useState(initialForm); // los valores iniciales del formulario los va a recibir como parametro
   const [errors, setErrors] = useState({}); // para guardas los errores y si tiene algo dentro muestro el error
@@ -25,8 +22,7 @@ export const useForm = (initialForm, validateForm) => {
     });
   };
   //solo para el select
-  /////////////////////////////////////////////////////////
-  function handleSelect(e) {
+   function handleSelect(e) {
     setForm({
       ...form,
       temperament: [...form.temperament, e.target.value],

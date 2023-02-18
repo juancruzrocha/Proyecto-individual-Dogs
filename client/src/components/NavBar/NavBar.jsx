@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import estilos from "./NavBar.module.css";
-import SearchBar from './SearchBar';
-import Timer from './Timer'
+import SearchBar from '../SearchBar/SearchBar';
+import Timer from '../Timer/Timer'
 
 
 const NavBar = (props) => {

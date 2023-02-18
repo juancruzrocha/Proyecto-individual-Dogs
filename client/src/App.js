@@ -1,9 +1,9 @@
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
-import LandingPage from "./components/LandingPage";
-import Home from "./components/Home";
-import DogDetail from "./components/DogDetail";
-import CreateDog from './components/CreateDog';
+import LandingPage from "./components/LandingPage/LandingPage";
+import Home from "./components/Home/Home";
+import DogDetail from "./components/DogDetail/DogDetail";
+import CreateDog from './components/CreateDog/CreateDog';
 
 function App() {
   return (

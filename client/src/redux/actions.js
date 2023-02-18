@@ -18,6 +18,14 @@ export const getDogs = () => {
   };
 };
 
+export const getDogsFromDb = () => {
+  return function (dispatch) {
+    fetch("http://localhost:3001/dogs/dogsDb")
+      .then((response) => response.json())
+      .then((payload) => dispatch({ type: GET_DOGS_FROM_DB, payload }));
+  };
+};
+
 export const getDogDetail = (id) => {
   return function (dispatch) {
     fetch(`http://localhost:3001/dogs/${id}`)
@@ -35,51 +43,45 @@ export const getTemperaments = () => {
 };
 
 export const searchResult = (name) => {
-return function (dispatch) {
-  fetch(`http://localhost:3001/dogs?name=${name}`)
-    .then((response) => response.json())
-    .then((data) => dispatch({ type: SEARCH_RESULT, payload: data }));
+  return function (dispatch) {
+    fetch(`http://localhost:3001/dogs?name=${name}`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: SEARCH_RESULT, payload: data }));
+  };
 };
-}
 export const emptySearchResult = (payload) => {
-  return {type: EMPTY_SEARCH_RESULT, payload}
-}
+  return function (dispatch) {
+    dispatch({ type: EMPTY_SEARCH_RESULT, payload });
+  };
+};
 
 export const orderByName = (payload) => {
-  return { type: ORDER_BY_NAME, payload  };
+  return function (dispatch) {
+    dispatch({ type: ORDER_BY_NAME, payload });
+  };
 };
 
 export const orderByWeight = (payload) => {
-  return { type: ORDER_BY_WEIGHT, payload  };
+  return function (dispatch) {
+    dispatch({ type: ORDER_BY_WEIGHT, payload });
+  };
 };
 
 export const filterDogsByTemperament = (payload) => {
-  return { type: FILTER_DOGS_BY_TEMPERAMENTS, payload  };
-};
-
-export const getDogsFromDb = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/dogs/dogsDb")
-      .then((response) => response.json())
-      .then((payload)=> dispatch({ type: GET_DOGS_FROM_DB, payload}))
-  }
+    dispatch({ type: FILTER_DOGS_BY_TEMPERAMENTS, payload });
+  };
 };
 
 export const paginateChanger = (payload) => {
-  return { type: PAGINATE_CHANGER, payload }
-}
+  return function (dispatch) {
+    dispatch({ type: PAGINATE_CHANGER, payload });
+  };
+};
 
 export const createDog = (dog) => {
-  return function(dispatch){
-    return dispatch({ type: CREATE_DOG, payload: dog})
-  }
-}
+  return function (dispatch) {
+    dispatch({ type: CREATE_DOG, payload: dog });
+  };
+};
 
-
-
-/* 
-export const filterDogsByTemperament = (payload) => dispatch({ type: FILTER_DOGS_BY_TEMPERAMENTS, payload  })
-  
-
-
-*/

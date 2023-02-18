@@ -2,11 +2,11 @@ import React from "react";
 //estilos
 import estilos from './Home.module.css'
 //componentes
-import Cards from "./Cards";
-import Filtrado from "./Filtrado";
-import NavBar from "./NavBar";
-import ShowSearchResult from "./ShowSearchResult";
-import Paginado from "./Paginado";
+import Cards from "../Cards/Cards";
+import Filtrado from "../Filtrado/Filtrado";
+import NavBar from "../NavBar/NavBar";
+import ShowSearchResult from "../ShowSearchResult/ShowSearchResult";
+import Paginado from "../Paginado/Paginado";
 
 const Home = (props) => {
   return (
