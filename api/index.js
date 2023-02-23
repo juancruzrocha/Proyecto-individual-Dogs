@@ -10,4 +10,4 @@ conn.sync({ force: true }).then(() => {
   server.listen(SERVER_PORT || 3001, () => {
     console.log(`Listening at ${SERVER_PORT}`) // eslint-disable-line no-console
   });
-});
+} );
