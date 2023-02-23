@@ -31,7 +31,7 @@ dogRouter.get("/", async (req, res) => {
 
     return res.status(200).send(matchedDogsByName);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(400).send(error.message);
   }
 });
 
@@ -63,7 +63,7 @@ dogRouter.post("/", async (req, res) => {
 dogRouter.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     await Dog.destroy({ where: { id } });
 
     res.status(200).send("Dog deleted succesfully");
