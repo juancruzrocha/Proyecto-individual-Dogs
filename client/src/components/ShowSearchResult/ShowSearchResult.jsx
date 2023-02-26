@@ -28,7 +28,7 @@ const ShowSearchResult = (props) => {
         })}
       </div>
     </>
-  ) : null;
+  ) : <div style={{marginLeft: '50px'}}> <h3>Try typing a breed on the search bar.</h3></div>;
 };
 
 export default ShowSearchResult;

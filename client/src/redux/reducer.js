@@ -17,6 +17,7 @@ import {
 import { orderDogsByName } from "./../controllers/orderDogsByName";
 import { orderDogsByWeight } from "./../controllers/orderDogsByWeight";
 import { filterDogsByTemperament } from "../controllers/filterDogsByTemperament";
+import { validateSearchResult } from "../controllers/validateSearchResult"
 
 const initialState = {
   dogs: [],
@@ -57,7 +58,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         searchResult: [...action.payload],
-        showSearchResult: true,
+        showSearchResult: validateSearchResult(action,state),
       };
 
     case EMPTY_SEARCH_RESULT:
