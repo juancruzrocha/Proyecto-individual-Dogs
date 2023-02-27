@@ -1,7 +1,7 @@
 export const validateSearchResult=function(action,state){
-    console.log( 'dogs length',state.dogs.length,'-----------------', 'action.payloads=>', action.payload)
-    if(state.dogs.length == action.payload.length) return false
-    if(action.payload.length == 0) return false
+    // console.log( 'dogs length',state.dogs.length,'-----------------', 'action.payloads=>', action.payload)
+    if(state.dogs.length === action.payload.length) return false
+    if(action.payload.length === 0) return false
     else return true
 }
 
